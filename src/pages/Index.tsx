@@ -1,13 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import AppSidebar from "@/components/AppSidebar";
+import BentoDashboard from "@/components/BentoDashboard";
+import { Menu } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <SidebarProvider>
+      <div className="min-h-screen flex w-full bg-background">
+        <AppSidebar />
+        <div className="flex-1 flex flex-col">
+          <header className="h-12 flex items-center border-b border-border px-4 shrink-0">
+            <SidebarTrigger>
+              <Menu className="w-5 h-5 text-muted-foreground" />
+            </SidebarTrigger>
+          </header>
+          <BentoDashboard />
+        </div>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };
 
